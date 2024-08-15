@@ -1,4 +1,6 @@
+using ApplicationCore.Avelam.Interfaces;
 using Infrastructure.Avelam.Context;
+using Infrastructure.Avelam.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,9 @@ builder.Services.AddDbContext<AvelamContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
 });
+
+builder.Services.AddScoped<ISweetRepository, SweetRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 

@@ -10,5 +10,6 @@ namespace Infrastructure.Avelam.Context
         }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Sweet> Sweets { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
